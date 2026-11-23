@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Habit Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero: greeting, date, motivation -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="brand">✔ Daily Habit Tracker</span>
+        <button id="themeBtn" class="theme" type="button" aria-label="Switch light or dark theme">🌙</button>
+      </div>
+      <h1 id="greeting">Hello</h1>
+      <p id="todayLabel"></p>
+      <p id="motivation" class="motivation"></p>
+    </div>
+  </header>
+
+  <main class="wrap app">
+
+    <!-- Progress dashboard -->
+    <section class="stats" aria-label="Progress summary">
+      <article class="stat">
+        <p class="stat-label">Today</p>
+        <p class="stat-value" id="todayPct">0%</p>
+        <div class="bar"><div class="fill" id="todayFill"></div></div>
+        <p class="stat-note" id="todayText">0 of 0 habits done</p>
+      </article>
+      <article class="stat">
+        <p class="stat-label">Last 7 days</p>
+        <p class="stat-value" id="weekPct">0%</p>
+        <div class="bar"><div class="fill fill-week" id="weekFill"></div></div>
+        <p class="stat-note" id="weekText">0 of 0 check-ins</p>
+      </article>
+      <article class="stat">
+        <p class="stat-label">🔥 Best streak overall</p>
+        <p class="stat-value streak-val" id="bestStreak">0</p>
+        <p class="stat-note">days in a row</p>
+      </article>
+    </section>
+
+    <!-- Add habit -->
+    <form id="habitForm" class="panel" autocomplete="off">
+      <h2>Add a new habit</h2>
+      <div id="iconPicker" class="icons" role="group" aria-label="Choose an icon"></div>
+      <div class="row">
+        <input id="habitName" type="text" maxlength="30" placeholder="e.g. Drink 8 glasses of water" aria-label="Habit name">
+        <button type="submit" class="primary">Add Habit</button>
+      </div>
+    </form>
+
+    <!-- Habit cards (filled by JavaScript) -->
+    <ul id="habitList" class="habits"></ul>
+    <div id="emptyState" class="empty">
+      <div class="empty-icon">🌱</div>
+      <h3>No habits yet</h3>
+      <p>Pick an icon, type a name and press Add Habit to start your first streak.</p>
+    </div>
+
+    <footer class="credit">
+      <p>Introduction to ICT Lab (CL-1000), BCS-1B, National University of Computer and Emerging Sciences, Karachi</p>
+      <p>Muhammad Sufyan, Bilal Ahmed and Sudheer Mantharani</p>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
